@@ -33,7 +33,7 @@ program fortran_intr_bench
 
    call cpu_time(time_start)
    do nn = 1, test_size
-      sum_result = sum_result + 1.0_dp
+      sum_result = sum_result + input_values(nn)
    end do
    call cpu_time(time_end)
    write(*, "(A12,F11.2)") "overhead |", (time_end - time_start) * 1e9_dp / test_size
