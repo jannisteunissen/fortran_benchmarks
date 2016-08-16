@@ -1,4 +1,4 @@
-! This program benchmarks several Fortran intrinsic functions
+! This program benchmarks select case constructs for integers and strings
 program select_case_benchmark
 
   integer, parameter                     :: test_size  = 20*1000*1000
