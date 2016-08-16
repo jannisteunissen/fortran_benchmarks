@@ -1,11 +1,13 @@
-program fortran_intr_bench
-   integer, parameter :: dp = kind(0.0d0)
-   integer, parameter :: test_size = 20*1000*1000
+! This program benchmarks several Fortran intrinsic functions
+program intrinsics_benchmark
 
-   integer :: nn
-   real(dp), allocatable :: input_values(:)
-   real(dp) :: time_start, time_end
-   real(dp) :: sum_result
+  integer, parameter    :: dp        = kind(0.0d0)
+  integer, parameter    :: test_size = 20*1000*1000
+
+  integer               :: nn
+  real(dp), allocatable :: input_values(:)
+  real(dp)              :: time_start, time_end
+  real(dp)              :: sum_result
 
    ! Don't put these values on the stack due to size restrictions on some system
    allocate(input_values(test_size))
@@ -154,4 +156,4 @@ program fortran_intr_bench
    write(*, *) ""
    write(*, "(A,E11.4)") " Done! The sum of all computed values is: ", sum_result
 
-end program fortran_intr_bench
+end program intrinsics_benchmark
