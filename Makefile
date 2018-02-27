@@ -1,7 +1,8 @@
 FC 	:= gfortran
 FFLAGS	:= -O3 -g -std=f2008 -Wall -Wextra
 
-PROGS	:= intrinsics_benchmark select_case_benchmark procedure_pointer_benchmark
+PROGS := intrinsics_benchmark select_case_benchmark procedure_pointer_benchmark	\
+allocate_benchmark
 
 .PHONY:	all test clean
 
@@ -14,6 +15,7 @@ clean:
 %: %.f90
 	$(FC) -o $@ $^ $(FFLAGS)
 
+# How to get object files from .f90 source files
 %.o: %.f90
 	$(FC) -c -o $@ $^ $(FFLAGS)
 
