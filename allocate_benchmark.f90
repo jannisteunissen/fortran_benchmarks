@@ -15,6 +15,9 @@ program allocate_benchmark
 
   type(block_t), allocatable :: list_of_arrays(:)
 
+  write(*, "(A30,E11.2)") "Total array size (GB)", &
+       (total_size/2.0_dp**30) * 8
+
   call cpu_time(t0)
   allocate(list_of_arrays(n_allocs))
   do n = 1, n_allocs
@@ -22,12 +25,12 @@ program allocate_benchmark
      list_of_arrays(n)%d(:) = 1.0_dp
   end do
   call cpu_time(t1)
-  write(*, "(A20,E11.2)") "list of arrays (s)", t1 - t0
+  write(*, "(A30,E11.2)") "list of arrays (s)", t1 - t0
 
   call cpu_time(t0)
   allocate(one_array(total_size))
   one_array(:) = 1.0_dp
   call cpu_time(t1)
-  write(*, "(A20,E11.2)") "one array (s)", t1 - t0
+  write(*, "(A30,E11.2)") "one array (s)", t1 - t0
 
 end program allocate_benchmark
