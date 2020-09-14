@@ -9,7 +9,7 @@ allocate_benchmark
 all: 	$(PROGS)
 
 clean:
-	$(RM) $(PROGS)
+	$(RM) $(PROGS) *.o *.mod
 
 # How to get executables from .f90 source files
 %: %.f90
